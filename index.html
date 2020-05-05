@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>B-2-10</title>
+    </head>
+    <body>
+        Binário
+        <input type="text" id="binario">
+        <input type="button" value="converte" id="btn">
+        <div id="decimal"></div>
+
+        <script>
+            //identifica quando o usuario clicar no botão "convete" e chama a função responsavel por converter o numero recebido pelo input de id="binario"
+            document.getElementById("btn").onclick = function(){
+                converte(document.getElementById("binario").value)
+            }
+
+
+            function converte(numBinario){
+                //variável responsavel por armazenar o valor decimal 
+                var decimal = 0
+                
+                //atribui a uma variavel o parametro recebido pela função
+                var bin = numBinario
+
+                //transaforma o parametro recebido pela função em uma string
+                bin.ToString
+                
+                //transforma a string em um array, no qual cada algarismo do numero recebido ocupa uma posição deste array
+                bin.split("");
+
+                //inverte o array, exemplo({"o","i"} => {"i","o"}
+                //quando se converte um numero binario para decimal manualmente é normal começar do algarismo mais a direita, ou seja, do menor para o maior
+                //e por isso utilizei a função reverse()
+                bin.reverse()
+
+                //um "for" que passa por todos os elementos do array
+                for (let index = 0; index < bin.length; index++) {
+                    //se o valor na posição do array for igual a 1 o algoritmo pega o valor da variavel decimal e adiciona dois elevado o a posição do array
+                    //senão, o algoritmo verifica se o valor da posição do array é diferente de 0, se sim é retornado uma menssagem de erro
+                    //se o valor na posição do array for igual a zero não é necessario fazer qualquer ação
+                    if (bin[index] == 1) {
+                        decimal += Math.pow(2,index)
+                    }else if(bin[index]!=0){
+                        document.getElementById("decimal").innerHTML = "Não é um numero binário"
+                        return
+                    }
+                    
+                }
+                //por fim, caso tudo de certo, é retornado o valor decimal
+                document.getElementById("decimal").innerHTML = decimal
+                return
+            }
+        </script>
+    </body>
+</html>
